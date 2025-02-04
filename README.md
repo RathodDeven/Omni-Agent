@@ -3,21 +3,6 @@
 **Short Description**  
 DeFAI Omni-Agent is a multi-chain AI-driven trading agent that issues its own token and pursues on-chain profit across multiple L2s (Base, Arbitrum, Warden). By staking or buying into the token, users can potentially earn rewards proportional to the AI agent’s profits. The agent uses secure private key storage (Lit Protocol or Nillion) for signing transactions, AgentKit for streamlined onchain operations, and Warden Protocol for programmable automation of DeFi trades based on specific conditions. The application is deployed and orchestrated through Autonome, ensuring a trust-minimized, production-ready AI agent infrastructure.
 
----
-
-## Table of Contents
-1. [Project Highlights](#project-highlights)  
-2. [Architecture Overview](#architecture-overview)  
-3. [Tech Stack & Sponsors](#tech-stack--sponsors)  
-4. [Setup & Installation](#setup--installation)  
-5. [Configuration](#configuration)  
-6. [Usage](#usage)  
-7. [File/Folder Structure](#filefolder-structure)  
-8. [Future Plans](#future-plans)  
-9. [License](#license)
-
----
-
 ## Project Highlights
 
 - **AI Trading Agent**  
@@ -37,5 +22,3 @@ DeFAI Omni-Agent is a multi-chain AI-driven trading agent that issues its own to
 
 - **Hosted via Autonome**  
   The entire AI agent logic is deployed on **Autonome**, so it can run 24/7 with robust verifiability and minimal overhead.
-
----
