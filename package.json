@@ -1,0 +1,12 @@
+{
+  "name": "omni-agent",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"apps/*\" run dev",
+    "build": "pnpm --parallel --filter \"apps/*\" run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
