@@ -33,11 +33,13 @@ const Home = () => {
         <div className="font-bold text-4xl mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
           $OMNI makes money for you while you sleep
         </div>
-        <p className="text-2xl text-s-text mb-8 max-w-2xl mx-auto">
-          Hold $OMNI tokens and share in the profits as our AI agents trade meme
-          coins and flip tokens. 30% of profits sustain AI operations and
-          hosting, while 70% are added to the liquidity pool, driving the token
-          price higher.
+        <p className="text-2xl text-s-text mb-8 max-w-3xl mx-auto">
+          Hold $OMNI tokens and share in the profits of AI Agent Omni—flipping
+          meme coins, tokens and optimizing yields on Base, Starknet, and
+          Arbitrum. $OMNI directs 30% of its earnings to fuel it's own AI
+          operations and hosting costs making it a self-sustaining ecosystem,
+          while 70% goes straight into the liquidity pool, propelling $OMNI’s
+          price to new heights!
         </p>
         <Button
           variant="contained"
