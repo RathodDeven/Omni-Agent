@@ -26,8 +26,7 @@ const TopHeader = () => {
             <Link
               key={link.path}
               href={link.path}
-              className="text-gray-600 hover:text-primary-600 dark:text-gray-300 
-                dark:hover:text-primary-400 transition-colors"
+              className="text-s-text hover:text-p-text transition-colors"
             >
               {link.name}
             </Link>
