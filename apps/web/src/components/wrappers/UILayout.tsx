@@ -25,7 +25,7 @@ const UILayout: React.FC<Props> = (props) => {
         <div className="w-full absolute left-0 right-0 top-0 ">
           <TopHeader />
         </div>
-        <div className="start-center-row h-screen pt-[60px] overflow-hidden">
+        <div className="start-center-row h-screen pt-[50px] overflow-x-hidden overflow-y-auto">
           <div className="h-full w-full">{props.children}</div>
         </div>
       </div>

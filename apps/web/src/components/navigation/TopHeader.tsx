@@ -18,7 +18,7 @@ const TopHeader = () => {
   ]
 
   return (
-    <div className="flex flex-row items-center justify-between p-5 bg-s-bg">
+    <div className="flex flex-row items-center justify-between px-6 py-3 bg-s-bg">
       <div className="flex items-center space-x-8">
         <div className="text-xl font-bold">{APP_NAME}</div>
         <nav className="flex space-x-6">

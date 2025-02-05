@@ -29,11 +29,11 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-p-bg text-p-text">
       {/* Hero Section */}
-      <section className="py-20 px-4 max-w-6xl mx-auto text-center">
-        <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-          $OMNI - AI Trading Bot
-        </h1>
-        <p className="text-xl text-s-text mb-8 max-w-2xl mx-auto">
+      <section className="py-20 px-4 sm:max-w-6xl mx-auto text-center">
+        <div className="font-bold text-4xl mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          $OMNI makes money for you while you sleep
+        </div>
+        <p className="text-2xl text-s-text mb-8 max-w-2xl mx-auto">
           Hold $OMNI tokens and share in the profits as our AI agents trade meme
           coins and flip tokens. 30% of profits sustain AI operations and
           hosting, while 70% are added to the liquidity pool, driving the token
