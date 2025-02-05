@@ -13,7 +13,6 @@ const TopHeader = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Trade', path: '/trade' },
     { name: 'AI Insights', path: '/ai-insights' }
   ]
 
