@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { APP_NAME } from '@/src/utils/config'
 import { useTheme } from '../wrappers/TailwindThemeProvider'
 import { IconButton } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
+import { WalletDefault } from '@coinbase/onchainkit/wallet'
 
 const TopHeader = () => {
   const { theme, toggleTheme } = useTheme()
@@ -34,7 +34,7 @@ const TopHeader = () => {
       </div>
 
       <div className="flex items-center space-x-8">
-        <ConnectButton />
+        <WalletDefault />
         <IconButton onClick={toggleTheme} color="inherit">
           {theme === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
         </IconButton>

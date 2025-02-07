@@ -20,6 +20,7 @@
     "typescript": "5.7.2"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.36.9",
     "@ducanh2912/next-pwa": "^10.2.9",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
