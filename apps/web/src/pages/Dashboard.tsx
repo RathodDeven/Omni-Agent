@@ -18,7 +18,10 @@ import {
   TableHead,
   TableRow
 } from '@mui/material'
-import { useLiquidityPoolQuery } from '../graphql/generated'
+import {
+  useGetPoolDailySnapshotsQuery,
+  useLiquidityPoolQuery
+} from '../graphql/generated'
 import { POOL_ID } from '../utils/config'
 import { useAccount, useReadContract } from 'wagmi'
 import { Address, erc20Abi, formatUnits } from 'viem'
@@ -92,25 +95,32 @@ const Dashboard = () => {
           Portfolio Overview
         </Typography>
         <Grid container spacing={4}>
-          <Grid item xs={12} md={3}>
+          {/* First Row */}
+          <Grid item xs={12} md={6}>
             <Typography className="text-s-text">Your OMNI Balance</Typography>
             <Typography variant="h6" className="text-p-text">
               {`${balance} OMNI`}
             </Typography>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={6}>
             <Typography className="text-s-text">WETH Value</Typography>
             <Typography variant="h6" className="text-p-text">
-              {`${(omniPriceInWETH * Number(balance)).toFixed(12)} WETH`}
+              {`${Number(
+                (omniPriceInWETH * Number(balance)).toFixed(12)
+              ).toLocaleString(undefined, {
+                minimumFractionDigits: 12,
+                maximumFractionDigits: 12
+              })} WETH`}
             </Typography>
           </Grid>
-          <Grid item xs={12} md={3}>
+          {/* Second Row */}
+          <Grid item xs={12} md={6}>
             <Typography className="text-s-text">Current Price</Typography>
             <Typography variant="h6" className="text-p-text">
               {`${omniPriceInWETH.toFixed(12)} WETH`}
             </Typography>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={6}>
             <Typography className="text-s-text">Share in Pool</Typography>
             <Typography variant="h6" className="text-p-text">
               {`${((Number(balance) / omniBalance) * 100).toFixed(10)}%`}
@@ -118,46 +128,6 @@ const Dashboard = () => {
           </Grid>
         </Grid>
       </Paper>
-
-      {/* Charts Section */}
-      <Grid container spacing={3} className="mb-6">
-        <Grid item xs={12} md={6}>
-          <Paper className="p-4 bg-s-bg">
-            <Typography variant="h6" className="mb-4 text-p-text">
-              OMNI Price
-            </Typography>
-            <div style={{ height: 300 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={priceData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="price" stroke="#8884d8" />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Paper className="p-4 bg-s-bg">
-            <Typography variant="h6" className="mb-4 text-p-text">
-              ROI Performance
-            </Typography>
-            <div style={{ height: 300 }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={roiData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="date" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="roi" stroke="#82ca9d" />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </Paper>
-        </Grid>
-      </Grid>
 
       {/* Recent Trades */}
       <Paper className="p-4 bg-s-bg">

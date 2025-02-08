@@ -1,0 +1,17 @@
+query GetPoolDailySnapshots(
+  $poolId: String!
+  $first: Int = 30
+  $orderBy: LiquidityPoolDailySnapshot_orderBy = timestamp
+  $orderDirection: OrderDirection = asc
+) {
+  liquidityPoolDailySnapshots(
+    where: { pool: $poolId }
+    first: $first
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+  ) {
+    id
+    timestamp
+    inputTokenBalances
+  }
+}

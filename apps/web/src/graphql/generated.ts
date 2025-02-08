@@ -7935,6 +7935,23 @@ export type LiquidityPoolQuery = {
   } | null
 }
 
+export type GetPoolDailySnapshotsQueryVariables = Exact<{
+  poolId: Scalars['String']['input']
+  first?: InputMaybe<Scalars['Int']['input']>
+  orderBy?: InputMaybe<LiquidityPoolDailySnapshot_OrderBy>
+  orderDirection?: InputMaybe<OrderDirection>
+}>
+
+export type GetPoolDailySnapshotsQuery = {
+  __typename?: 'Query'
+  liquidityPoolDailySnapshots: Array<{
+    __typename?: 'LiquidityPoolDailySnapshot'
+    id: any
+    timestamp: any
+    inputTokenBalances: Array<any>
+  }>
+}
+
 export const LiquidityPoolDocument = gql`
   query LiquidityPool($id: ID!) {
     liquidityPool(id: $id) {
@@ -8024,6 +8041,103 @@ export type LiquidityPoolSuspenseQueryHookResult = ReturnType<
 export type LiquidityPoolQueryResult = Apollo.QueryResult<
   LiquidityPoolQuery,
   LiquidityPoolQueryVariables
+>
+export const GetPoolDailySnapshotsDocument = gql`
+  query GetPoolDailySnapshots(
+    $poolId: String!
+    $first: Int = 30
+    $orderBy: LiquidityPoolDailySnapshot_orderBy = timestamp
+    $orderDirection: OrderDirection = asc
+  ) {
+    liquidityPoolDailySnapshots(
+      where: { pool: $poolId }
+      first: $first
+      orderBy: $orderBy
+      orderDirection: $orderDirection
+    ) {
+      id
+      timestamp
+      inputTokenBalances
+    }
+  }
+`
+
+/**
+ * __useGetPoolDailySnapshotsQuery__
+ *
+ * To run a query within a React component, call `useGetPoolDailySnapshotsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPoolDailySnapshotsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPoolDailySnapshotsQuery({
+ *   variables: {
+ *      poolId: // value for 'poolId'
+ *      first: // value for 'first'
+ *      orderBy: // value for 'orderBy'
+ *      orderDirection: // value for 'orderDirection'
+ *   },
+ * });
+ */
+export function useGetPoolDailySnapshotsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetPoolDailySnapshotsQuery,
+    GetPoolDailySnapshotsQueryVariables
+  > &
+    (
+      | { variables: GetPoolDailySnapshotsQueryVariables; skip?: boolean }
+      | { skip: boolean }
+    )
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<
+    GetPoolDailySnapshotsQuery,
+    GetPoolDailySnapshotsQueryVariables
+  >(GetPoolDailySnapshotsDocument, options)
+}
+export function useGetPoolDailySnapshotsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPoolDailySnapshotsQuery,
+    GetPoolDailySnapshotsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<
+    GetPoolDailySnapshotsQuery,
+    GetPoolDailySnapshotsQueryVariables
+  >(GetPoolDailySnapshotsDocument, options)
+}
+export function useGetPoolDailySnapshotsSuspenseQuery(
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetPoolDailySnapshotsQuery,
+        GetPoolDailySnapshotsQueryVariables
+      >
+) {
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions }
+  return Apollo.useSuspenseQuery<
+    GetPoolDailySnapshotsQuery,
+    GetPoolDailySnapshotsQueryVariables
+  >(GetPoolDailySnapshotsDocument, options)
+}
+export type GetPoolDailySnapshotsQueryHookResult = ReturnType<
+  typeof useGetPoolDailySnapshotsQuery
+>
+export type GetPoolDailySnapshotsLazyQueryHookResult = ReturnType<
+  typeof useGetPoolDailySnapshotsLazyQuery
+>
+export type GetPoolDailySnapshotsSuspenseQueryHookResult = ReturnType<
+  typeof useGetPoolDailySnapshotsSuspenseQuery
+>
+export type GetPoolDailySnapshotsQueryResult = Apollo.QueryResult<
+  GetPoolDailySnapshotsQuery,
+  GetPoolDailySnapshotsQueryVariables
 >
 
 export interface PossibleTypesResultData {
