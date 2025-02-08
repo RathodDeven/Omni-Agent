@@ -6,17 +6,20 @@ import MuiThemeWrapper from './MuiThemeWrapper'
 import ThemeProvider from './TailwindThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import OnchainKitProviderWrapper from './OnchainKitProviderWrapper'
+import ApolloWrapper from './ApolloWrapper'
 
 const Wrappers = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
       <MuiThemeWrapper>
-        <OnchainKitProviderWrapper>
-          {/* <RainbowKitWrapper> */}
-          <Toaster position={'top-center'} />
-          <UILayout>{children}</UILayout>
-          {/* </RainbowKitWrapper> */}
-        </OnchainKitProviderWrapper>
+        <ApolloWrapper>
+          <OnchainKitProviderWrapper>
+            {/* <RainbowKitWrapper> */}
+            <Toaster position={'top-center'} />
+            <UILayout>{children}</UILayout>
+            {/* </RainbowKitWrapper> */}
+          </OnchainKitProviderWrapper>
+        </ApolloWrapper>
       </MuiThemeWrapper>
     </ThemeProvider>
   )

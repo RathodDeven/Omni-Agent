@@ -1,0 +1,17 @@
+query LiquidityPool($id: ID!) {
+  liquidityPool(id: $id) {
+    id
+    name
+
+    # This usually is an array of the tokens in the pool.
+    # For a 2-token Uniswap V3 pool, you'll likely see 2 tokens.
+    inputTokens {
+      id
+      symbol
+      name
+      decimals
+    }
+
+    inputTokenBalances
+  }
+}

@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from '@mui/material'
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet'
 import ShowChartIcon from '@mui/icons-material/ShowChart'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp'
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz'
 import LocalAtmIcon from '@mui/icons-material/LocalAtm'
-import { APP_NAME } from '../utils/config'
+import { APP_NAME, POOL_ID } from '../utils/config'
 
 import { SwapDefault } from '@coinbase/onchainkit/swap'
 import type { Token } from '@coinbase/onchainkit/token'
+import { useLiquidityPoolQuery } from '../graphql/generated'
 
 const weth: Token = {
   name: 'WETH',
@@ -58,6 +59,35 @@ const StatsCard = ({
 )
 
 const Home = () => {
+  const { data } = useLiquidityPoolQuery({
+    variables: {
+      id: POOL_ID
+    }
+  })
+
+  const [wethBalance, setWethBalance] = React.useState<number>(0)
+  const [omniBalance, setOmniBalance] = React.useState<number>(0)
+  const [omniPriceInWETH, setOmniPriceInWETH] = React.useState<number>(0)
+
+  useEffect(() => {
+    if (!data?.liquidityPool) return
+
+    // Extract balances (as strings):
+    const [wethBalanceRaw, omniBalanceRaw] =
+      data.liquidityPool.inputTokenBalances
+
+    // Convert raw balances to "normal" (floating) amounts
+    const wethBal = Number(wethBalanceRaw) / 1e18
+    const omniBal = Number(omniBalanceRaw) / 1e18
+
+    // Compute price of 1 OMNI in WETH
+    const priceInWETH = wethBal / omniBal
+
+    setWethBalance(wethBal)
+    setOmniBalance(omniBal)
+    setOmniPriceInWETH(priceInWETH)
+  }, [data])
+
   return (
     <div className="bg-p-bg text-p-text pb-20">
       {/* Hero Section */}
@@ -80,19 +110,19 @@ const Home = () => {
       <section className="px-4 max-w-6xl mx-auto mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatsCard
-            title="OMNI Price"
-            value="$1.234"
+            title="OMNI Price (WETH)"
+            value={`${omniPriceInWETH.toFixed(12)} WETH`}
             icon={<ShowChartIcon className="text-blue-500" />}
           />
           <StatsCard
-            title="ROI (Last 30d)"
-            value="+15.7%"
-            icon={<TrendingUpIcon className="text-green-500" />}
+            title="WETH Liquidity"
+            value={`${wethBalance.toFixed(4)} WETH`}
+            icon={<LocalAtmIcon className="text-green-500" />}
           />
           <StatsCard
-            title="Active Trades"
-            value="142"
-            icon={<SwapHorizIcon className="text-purple-500" />}
+            title="OMNI Liquidity"
+            value={`${Number(omniBalance).toLocaleString()} OMNI`}
+            icon={<AccountBalanceWalletIcon className="text-purple-500" />}
           />
         </div>
       </section>
