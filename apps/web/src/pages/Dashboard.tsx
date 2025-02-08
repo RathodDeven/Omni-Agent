@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   LineChart,
   Line,
@@ -18,6 +18,11 @@ import {
   TableHead,
   TableRow
 } from '@mui/material'
+import { useLiquidityPoolQuery } from '../graphql/generated'
+import { POOL_ID } from '../utils/config'
+import { useAccount, useReadContract } from 'wagmi'
+import { Address, erc20Abi, formatUnits } from 'viem'
+import { omni } from './Home'
 
 // Dummy data for charts
 const priceData = Array.from({ length: 30 }, (_, i) => ({
@@ -37,6 +42,48 @@ const recentTrades = [
 ]
 
 const Dashboard = () => {
+  const { address } = useAccount()
+
+  const [wethBalance, setWethBalance] = React.useState<number>(0)
+  const [omniBalance, setOmniBalance] = React.useState<number>(0)
+  const [omniPriceInWETH, setOmniPriceInWETH] = React.useState<number>(0)
+
+  const { data } = useLiquidityPoolQuery({
+    variables: {
+      id: POOL_ID
+    }
+  })
+
+  const { data: balanceData } = useReadContract({
+    abi: erc20Abi,
+    address: omni.address as Address,
+    args: [address!],
+    functionName: 'balanceOf'
+  })
+
+  useEffect(() => {
+    if (!data?.liquidityPool) return
+
+    // Extract balances (as strings):
+    const [wethBalanceRaw, omniBalanceRaw] =
+      data.liquidityPool.inputTokenBalances
+
+    // Convert raw balances to "normal" (floating) amounts
+    const wethBal = Number(wethBalanceRaw) / 1e18
+    const omniBal = Number(omniBalanceRaw) / 1e18
+
+    // Compute price of 1 OMNI in WETH
+    const priceInWETH = wethBal / omniBal
+
+    setWethBalance(wethBal)
+    setOmniBalance(omniBal)
+    setOmniPriceInWETH(priceInWETH)
+  }, [data])
+
+  const balance = balanceData
+    ? parseFloat(formatUnits(balanceData as bigint, omni.decimals)).toFixed(3)
+    : 0
+
   return (
     <div className="p-6 bg-p-bg">
       {/* Portfolio Overview */}
@@ -48,25 +95,25 @@ const Dashboard = () => {
           <Grid item xs={12} md={3}>
             <Typography className="text-s-text">Your OMNI Balance</Typography>
             <Typography variant="h6" className="text-p-text">
-              123.45 OMNI
+              {`${balance} OMNI`}
             </Typography>
           </Grid>
           <Grid item xs={12} md={3}>
-            <Typography className="text-s-text">USD Value</Typography>
+            <Typography className="text-s-text">WETH Value</Typography>
             <Typography variant="h6" className="text-p-text">
-              $456.78
+              {`${(omniPriceInWETH * Number(balance)).toFixed(12)} WETH`}
             </Typography>
           </Grid>
           <Grid item xs={12} md={3}>
             <Typography className="text-s-text">Current Price</Typography>
             <Typography variant="h6" className="text-p-text">
-              $3.70
+              {`${omniPriceInWETH.toFixed(12)} WETH`}
             </Typography>
           </Grid>
           <Grid item xs={12} md={3}>
             <Typography className="text-s-text">Share in Pool</Typography>
             <Typography variant="h6" className="text-p-text">
-              5.3%
+              {`${((Number(balance) / omniBalance) * 100).toFixed(10)}%`}
             </Typography>
           </Grid>
         </Grid>

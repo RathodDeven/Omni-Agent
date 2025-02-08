@@ -11,7 +11,7 @@ import { SwapDefault } from '@coinbase/onchainkit/swap'
 import type { Token } from '@coinbase/onchainkit/token'
 import { useLiquidityPoolQuery } from '../graphql/generated'
 
-const weth: Token = {
+export const weth: Token = {
   name: 'WETH',
   address: '0x4200000000000000000000000000000000000006',
   symbol: 'WETH',
@@ -21,7 +21,7 @@ const weth: Token = {
   chainId: 8453
 }
 
-const eth: Token = {
+export const eth: Token = {
   name: 'ETH',
   address: '',
   symbol: 'ETH',
@@ -31,7 +31,7 @@ const eth: Token = {
   chainId: 8453
 }
 
-const omni: Token = {
+export const omni: Token = {
   name: 'OMNI',
   address: '0xa27D37dbe5B92478b45e9A3C92DC1D3517A55BD0',
   symbol: 'OMNI',
