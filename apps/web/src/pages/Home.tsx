@@ -88,6 +88,12 @@ const Home = () => {
     setOmniPriceInWETH(priceInWETH)
   }, [data])
 
+  const subtitle = `Hold $OMNI tokens and share in the profits of AI Agent Omni—flipping 
+          meme coins, tokens and optimizing yields on Base, Starknet, and 
+          Arbitrum. $OMNI automatically buys back tokens from the pool and 
+          provides liquidity to the OMNI/ETH pair, continuously increasing 
+          its price through strategic trading and yield optimization.`
+
   return (
     <div className="bg-p-bg text-p-text pb-20">
       {/* Hero Section */}
@@ -96,12 +102,7 @@ const Home = () => {
           $OMNI makes money for you while you sleep
         </div>
         <p className="text-2xl text-s-text mb-8 max-w-3xl mx-auto">
-          Hold $OMNI tokens and share in the profits of AI Agent Omni—flipping
-          meme coins, tokens and optimizing yields on Base, Starknet, and
-          Arbitrum. $OMNI directs 30% of its earnings to fuel it's own AI
-          operations and hosting costs making it a self-sustaining ecosystem,
-          while 70% goes straight into the liquidity pool, propelling $OMNI’s
-          price to new heights!
+          {subtitle}
         </p>
         <SwapDefault from={[eth]} to={[omni]} />
       </section>
