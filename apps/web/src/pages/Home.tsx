@@ -7,6 +7,38 @@ import SwapHorizIcon from '@mui/icons-material/SwapHoriz'
 import LocalAtmIcon from '@mui/icons-material/LocalAtm'
 import { APP_NAME } from '../utils/config'
 
+import { SwapDefault } from '@coinbase/onchainkit/swap'
+import type { Token } from '@coinbase/onchainkit/token'
+
+const weth: Token = {
+  name: 'WETH',
+  address: '0x4200000000000000000000000000000000000006',
+  symbol: 'WETH',
+  decimals: 18,
+  image:
+    'https://wallet-api-production.s3.amazonaws.com/uploads/tokens/weth_288.png',
+  chainId: 8453
+}
+
+const eth: Token = {
+  name: 'ETH',
+  address: '',
+  symbol: 'ETH',
+  decimals: 18,
+  image:
+    'https://wallet-api-production.s3.amazonaws.com/uploads/tokens/eth_288.png',
+  chainId: 8453
+}
+
+const omni: Token = {
+  name: 'OMNI',
+  address: '0xa27D37dbe5B92478b45e9A3C92DC1D3517A55BD0',
+  symbol: 'OMNI',
+  decimals: 18,
+  image: '/logo.png',
+  chainId: 8453
+}
+
 const StatsCard = ({
   title,
   value,
@@ -27,9 +59,9 @@ const StatsCard = ({
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-p-bg text-p-text">
+    <div className="bg-p-bg text-p-text pb-20">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:max-w-6xl mx-auto text-center">
+      <section className="py-20 px-4 sm:max-w-6xl mx-auto text-center flex flex-col items-center">
         <div className="font-bold text-4xl mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
           $OMNI makes money for you while you sleep
         </div>
@@ -41,14 +73,7 @@ const Home = () => {
           while 70% goes straight into the liquidity pool, propelling $OMNI’s
           price to new heights!
         </p>
-        <Button
-          variant="contained"
-          size="large"
-          startIcon={<LocalAtmIcon />}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg"
-        >
-          Buy Now
-        </Button>
+        <SwapDefault from={[eth]} to={[omni]} />
       </section>
 
       {/* Stats Cards */}
