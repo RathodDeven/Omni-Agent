@@ -153,7 +153,7 @@ importers:
         specifier: ^5.62.2
         version: 5.66.0(react@18.3.1)
       '@wagmi/core':
-        specifier: ^2.15.2
+        specifier: ^2.0.0
         version: 2.16.3(@tanstack/query-core@5.66.0)(@types/react@18.3.13)(react@18.3.1)(typescript@5.7.2)(use-sync-external-store@1.4.0(react@18.3.1))(viem@2.22.21(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10))
       autoprefixer:
         specifier: 10.4.20
@@ -201,7 +201,7 @@ importers:
         specifier: ^11.0.3
         version: 11.0.5
       viem:
-        specifier: ^2.21.54
+        specifier: ^2.0.0
         version: 2.22.21(bufferutil@4.0.9)(typescript@5.7.2)(utf-8-validate@5.0.10)
       wagmi:
         specifier: ^2.13.3

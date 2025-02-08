@@ -22,10 +22,9 @@ import {
   useGetPoolDailySnapshotsQuery,
   useLiquidityPoolQuery
 } from '../graphql/generated'
-import { POOL_ID } from '../utils/config'
+import { omni, POOL_ID } from '../utils/config'
 import { useAccount, useReadContract } from 'wagmi'
 import { Address, erc20Abi, formatUnits } from 'viem'
-import { omni } from './Home'
 
 // Dummy data for charts
 const priceData = Array.from({ length: 30 }, (_, i) => ({
@@ -46,6 +45,8 @@ const recentTrades = [
 
 const Dashboard = () => {
   const { address } = useAccount()
+
+  console.log('address', address)
 
   const [wethBalance, setWethBalance] = React.useState<number>(0)
   const [omniBalance, setOmniBalance] = React.useState<number>(0)

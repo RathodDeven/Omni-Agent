@@ -1,44 +1,12 @@
 import React, { useEffect } from 'react'
-import { Button } from '@mui/material'
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet'
 import ShowChartIcon from '@mui/icons-material/ShowChart'
-import TrendingUpIcon from '@mui/icons-material/TrendingUp'
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz'
 import LocalAtmIcon from '@mui/icons-material/LocalAtm'
-import { APP_NAME, POOL_ID } from '../utils/config'
+import { eth, omni, POOL_ID } from '../utils/config'
 
 import { SwapDefault } from '@coinbase/onchainkit/swap'
-import type { Token } from '@coinbase/onchainkit/token'
 import { useLiquidityPoolQuery } from '../graphql/generated'
-
-export const weth: Token = {
-  name: 'WETH',
-  address: '0x4200000000000000000000000000000000000006',
-  symbol: 'WETH',
-  decimals: 18,
-  image:
-    'https://wallet-api-production.s3.amazonaws.com/uploads/tokens/weth_288.png',
-  chainId: 8453
-}
-
-export const eth: Token = {
-  name: 'ETH',
-  address: '',
-  symbol: 'ETH',
-  decimals: 18,
-  image:
-    'https://wallet-api-production.s3.amazonaws.com/uploads/tokens/eth_288.png',
-  chainId: 8453
-}
-
-export const omni: Token = {
-  name: 'OMNI',
-  address: '0xa27D37dbe5B92478b45e9A3C92DC1D3517A55BD0',
-  symbol: 'OMNI',
-  decimals: 18,
-  image: '/logo.png',
-  chainId: 8453
-}
 
 const StatsCard = ({
   title,

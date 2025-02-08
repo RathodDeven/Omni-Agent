@@ -10,18 +10,18 @@ import ApolloWrapper from './ApolloWrapper'
 
 const Wrappers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider>
-      <MuiThemeWrapper>
-        <ApolloWrapper>
-          <OnchainKitProviderWrapper>
+    <OnchainKitProviderWrapper>
+      <ThemeProvider>
+        <MuiThemeWrapper>
+          <ApolloWrapper>
             {/* <RainbowKitWrapper> */}
             <Toaster position={'top-center'} />
             <UILayout>{children}</UILayout>
             {/* </RainbowKitWrapper> */}
-          </OnchainKitProviderWrapper>
-        </ApolloWrapper>
-      </MuiThemeWrapper>
-    </ThemeProvider>
+          </ApolloWrapper>
+        </MuiThemeWrapper>
+      </ThemeProvider>
+    </OnchainKitProviderWrapper>
   )
 }
 
