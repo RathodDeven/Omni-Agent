@@ -1,0 +1,24 @@
+{
+  "env": {
+    "browser": false,
+    "commonjs": false,
+    "es2021": true
+  },
+  "extends": ["standard"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "import/first": "off",
+    "import/order": "off",
+    "sort-imports": "off",
+    "no-unused-vars": "warn"
+  }
+}
