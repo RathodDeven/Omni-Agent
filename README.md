@@ -1,24 +1,58 @@
-# DeFAI Omni-Agent
+# Omni Agent
 
-**Short Description**  
-DeFAI Omni-Agent is a multi-chain AI-driven trading agent that issues its own token and pursues on-chain profit across multiple L2s (Base, Arbitrum, Warden). By staking or buying into the token, users can potentially earn rewards proportional to the AI agent’s profits. The agent uses secure private key storage (Lit Protocol or Nillion) for signing transactions, AgentKit for streamlined onchain operations, and Warden Protocol for programmable automation of DeFi trades based on specific conditions. The application is deployed and orchestrated through Autonome, ensuring a trust-minimized, production-ready AI agent infrastructure.
+## Overview
 
-## Project Highlights
+Omni Agent is an AI-powered trading system that leverages advanced machine learning algorithms to generate profits through strategic trading on the Base network. The system uses CoinMarketCap's API for real-time price data and implements conservative trading strategies with clear profit targets and loss limits.
 
-- **AI Trading Agent**  
-  Our agent uses large language model reasoning (optionally via AgentKit or a custom integration) to analyze market data fetched from The Graph or other oracle endpoints. It signs transactions securely and executes them on Base, Arbitrum, or Warden.
-  
-- **Multi-Chain & Bridge Capabilities**  
-  The agent can operate across different L2s, bridging assets if profitable arbitrage or yield opportunities arise.
+## Key Features
 
-- **Token Issuance**  
-  Investors can acquire the $DEFAI coin. The agent's profits, if any, flow back into the project, rewarding token holders with staking rewards or buybacks.
+### AI Trading Strategy
 
-- **Secure Key Management**  
-  By using **Lit Protocol** or **Nillion**, we ensure the agent’s private keys for on-chain execution remain secure and never leak to the environment.
+- Real-time BTC market analysis using CoinMarketCap API
+- Conservative profit target: +1%
+- Strict loss limit: -0.5%
+- 24-hour price movement analysis
+- Volume and market pattern recognition
+- Optimal entry/exit point detection
 
-- **On-Chain Automation**  
-  Through **Warden Protocol**, we can specify conditions and rules (like price triggers, position rebalances, risk checks) that automatically execute on chain once conditions are met.
+### Smart Contract Integration
 
-- **Hosted via Autonome**  
-  The entire AI agent logic is deployed on **Autonome**, so it can run 24/7 with robust verifiability and minimal overhead.
+- Utilizes Coinbase Developer Platform (CDP) AgentKit
+- Secure wallet connections on Base network
+- Automated swap functionalities
+- Located in `apps/backend-node`
+
+### $OMNI Token
+
+$OMNI tokens allow holders to participate in the AI agent's success:
+
+- Automated buybacks from trading profits
+- Liquidity provision to OMNI/ETH pair
+- Strategic trading across Base, Starknet, and Arbitrum
+- Continuous price optimization through yield strategies
+
+### Uniswap Pool
+
+ETH/OMNI pool available on Uniswap (Base):
+
+- Pool Address: [0xaaE056f7b0e618b18ED07FD6322FB68d1B2D976a](https://app.uniswap.org/explore/pools/base/0xaaE056f7b0e618b18ED07FD6322FB68d1B2D976a)
+
+## Project Structure
+
+```
+apps/
+├── backend-node/    # AI trading logic & CDP AgentKit integration
+├── web/            # NextJS frontend application
+└── contract/       # OMNI token smart contracts
+```
+
+### Technology Stack
+
+- Frontend: Next.js
+- Backend: Node.js with CDP AgentKit
+- Network: Base Mainnet
+- DEX: Uniswap V3
+
+## Note
+
+Current trading activities shown in the interface are simulations to demonstrate the strategy's potential. The system is designed to showcase optimal trading patterns without actual capital deployment.
