@@ -57,10 +57,8 @@ const Home = () => {
   }, [data])
 
   const subtitle = `Hold $OMNI tokens and share in the profits of AI Agent Omni—flipping 
-          meme coins, tokens and optimizing yields on Base, Starknet, and 
-          Arbitrum. $OMNI automatically buys back tokens from the pool and 
-          provides liquidity to the OMNI/ETH pair, continuously increasing 
-          its price through strategic trading and yield optimization.`
+          meme coins, tokens and optimizing yields on Base. $OMNI automatically buys back tokens from the pool and 
+          provides liquidity to the OMNI/ETH pair, continuously pumping OMNI/ETH price and rewarding its holders.`
 
   return (
     <div className="bg-p-bg text-p-text pb-20">
