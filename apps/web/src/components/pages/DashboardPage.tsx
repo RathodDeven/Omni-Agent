@@ -1,28 +1,8 @@
 'use client'
 import React, { useEffect } from 'react'
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts'
-import {
-  Paper,
-  Typography,
-  Grid,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow
-} from '@mui/material'
-import {
-  useGetPoolDailySnapshotsQuery,
-  useLiquidityPoolQuery
-} from '../../graphql/generated'
+
+import { Paper, Typography, Grid } from '@mui/material'
+import { useLiquidityPoolQuery } from '../../graphql/generated'
 import { omni, POOL_ID } from '../../utils/config'
 import { useAccount, useReadContract } from 'wagmi'
 import { Address, erc20Abi, formatUnits } from 'viem'
@@ -90,9 +70,9 @@ const Dashboard = () => {
     : 0
 
   return (
-    <div className="p-6 bg-p-bg">
+    <div className="p-12 bg-p-bg">
       {/* Portfolio Overview */}
-      <Paper className="p-6 mb-6 bg-s-bg">
+      <Paper className="p-6 mb-6 bg-s-bg rounded-md">
         <Typography variant="h5" className="mb-4 text-p-text">
           Portfolio Overview
         </Typography>
@@ -129,33 +109,6 @@ const Dashboard = () => {
             </Typography>
           </Grid>
         </Grid>
-      </Paper>
-
-      {/* Recent Trades */}
-      <Paper className="p-4 bg-s-bg">
-        <Typography variant="h6" className="mb-4 text-p-text">
-          Recent AI Trades
-        </Typography>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Token</TableCell>
-              <TableCell>Type</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Profit</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {recentTrades.map((trade) => (
-              <TableRow key={trade.id}>
-                <TableCell>{trade.token}</TableCell>
-                <TableCell>{trade.type}</TableCell>
-                <TableCell>{trade.amount}</TableCell>
-                <TableCell className="text-green-500">{trade.profit}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
       </Paper>
     </div>
   )

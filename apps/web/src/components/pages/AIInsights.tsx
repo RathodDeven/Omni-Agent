@@ -81,9 +81,13 @@ export default function AIInsights() {
         </div>
         <Typography className="text-s-text text-lg">
           Our AI agents utilize advanced machine learning algorithms to detect
-          emerging trends in meme coins and token markets. By analyzing social
-          sentiment, trading volumes, and price patterns, we identify optimal
-          entry and exit points for maximum profit potential.
+          emerging trends in Bitcoin markets using real-time price data from
+          CoinMarketCap's API. Operating on Base mainnet, we simulate trades
+          with a conservative profit target of +1% and a strict loss limit of
+          -0.5%. While analyzing 24-hour BTC price movements, trading volumes,
+          and market patterns, our system demonstrates optimal entry and exit
+          points. Note that all displayed transactions are simulations to
+          showcase the strategy's potential without actual capital deployment.
         </Typography>
       </Paper>
 
