@@ -25,39 +25,39 @@ import AutoGraphIcon from '@mui/icons-material/AutoGraph'
 // Dummy data for historical trades
 const historicalTrades = [
   {
-    date: '2024-02-01',
-    token: 'PEPE',
+    date: '2024-02-09 09:30',
+    token: 'BTC',
     action: 'BUY',
-    size: '50,000',
-    profitLoss: '+$120'
+    size: '0.1',
+    profitLoss: '+0.8%'
   },
   {
-    date: '2024-02-02',
-    token: 'DOGE',
+    date: '2024-02-09 11:15',
+    token: 'BTC',
     action: 'SELL',
-    size: '10,000',
-    profitLoss: '+$450'
+    size: '0.15',
+    profitLoss: '-0.3%'
   },
   {
-    date: '2024-02-03',
-    token: 'WOJAK',
+    date: '2024-02-09 13:45',
+    token: 'BTC',
     action: 'BUY',
-    size: '25,000',
-    profitLoss: '+$230'
+    size: '0.05',
+    profitLoss: '+0.6%'
   },
   {
-    date: '2024-02-04',
-    token: 'SHIB',
+    date: '2024-02-09 15:20',
+    token: 'BTC',
     action: 'SELL',
-    size: '100,000',
-    profitLoss: '+$890'
+    size: '0.12',
+    profitLoss: '-0.4%'
   },
   {
-    date: '2024-02-05',
-    token: 'FLOKI',
+    date: '2024-02-09 17:00',
+    token: 'BTC',
     action: 'BUY',
-    size: '75,000',
-    profitLoss: '+$340'
+    size: '0.08',
+    profitLoss: '+0.9%'
   }
 ]
 
