@@ -58,6 +58,15 @@ apps/
 - Network: Base Mainnet
 - DEX: Uniswap V3
 - TheGraph: Uniswap V3 Base graph
+
+## Future Plans
+
+- Allow agent to trade on multiple tokens
+- Provide liquidity to ETH/OMNI along with buying OMNI tokens from the profits generated
+- Improve UI/UX
+- Create more strategies with custom providers and let users bet on how ai agent will perform
+
+
 ## Note
 
 Current trading activities shown in the interface are simulations to demonstrate the strategy's potential. The system is designed to showcase optimal trading patterns without actual capital deployment.
