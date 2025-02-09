@@ -2,7 +2,7 @@
 
 ## Overview
 
-Omni Agent is an AI-powered trading system that leverages advanced machine learning algorithms to generate profits through strategic trading on the Base network. The system uses CoinMarketCap's API for real-time price data and implements conservative trading strategies with clear profit targets and loss limits.
+Omni Agent is an AI-powered trading system that generate profits through strategic trading on the Base network and shares the profit to the OMNI Holders by pumping its price. The system uses CoinMarketCap's API for real-time price data and implements conservative trading strategies with clear profit targets and loss limits.
 
 ## Flow
 
