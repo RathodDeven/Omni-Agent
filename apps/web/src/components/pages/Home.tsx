@@ -3,10 +3,10 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet'
 import ShowChartIcon from '@mui/icons-material/ShowChart'
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz'
 import LocalAtmIcon from '@mui/icons-material/LocalAtm'
-import { eth, omni, POOL_ID } from '../utils/config'
+import { eth, omni, POOL_ID } from '../../utils/config'
 
 import { SwapDefault } from '@coinbase/onchainkit/swap'
-import { useLiquidityPoolQuery } from '../graphql/generated'
+import { useLiquidityPoolQuery } from '../../graphql/generated'
 
 const StatsCard = ({
   title,

@@ -1,6 +1,6 @@
 'use client'
+import Home from '../src/components/pages/Home'
 import './globals.css'
-import Home from '../src/pages/Home'
 
 export default function Page() {
   return <Home />

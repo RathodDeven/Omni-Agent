@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect } from 'react'
 import {
   LineChart,
@@ -21,8 +22,8 @@ import {
 import {
   useGetPoolDailySnapshotsQuery,
   useLiquidityPoolQuery
-} from '../graphql/generated'
-import { omni, POOL_ID } from '../utils/config'
+} from '../../graphql/generated'
+import { omni, POOL_ID } from '../../utils/config'
 import { useAccount, useReadContract } from 'wagmi'
 import { Address, erc20Abi, formatUnits } from 'viem'
 
