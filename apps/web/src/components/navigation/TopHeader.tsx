@@ -30,6 +30,15 @@ const TopHeader = () => {
               {link.name}
             </Link>
           ))}
+
+          {/* github link */}
+          <a
+            href="https://github.com/RathodDeven/Omni-Agent"
+            target="_blank"
+            className="text-s-text hover:text-p-text transition-colors"
+          >
+            Github
+          </a>
         </nav>
       </div>
 
