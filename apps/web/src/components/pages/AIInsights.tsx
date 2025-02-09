@@ -69,6 +69,14 @@ const performanceData = Array.from({ length: 30 }, (_, i) => ({
 }))
 
 export default function AIInsights() {
+  const AIInsight_text = `Our AI agents utilize advanced machine learning algorithms to detect
+          emerging trends in Bitcoin markets using real-time price data from
+          CoinMarketCap's API. Operating on Base mainnet, we simulate trades
+          with a conservative profit target of +1% and a strict loss limit of
+          -0.5%. While analyzing 24-hour BTC price movements, trading volumes,
+          and market patterns, our system demonstrates optimal entry and exit
+          points. Note that all displayed transactions are simulations to
+          showcase the strategy's potential without actual capital deployment.`
   return (
     <div className="p-6 bg-p-bg min-h-screen">
       {/* AI Strategy Overview */}
@@ -80,14 +88,7 @@ export default function AIInsights() {
           </Typography>
         </div>
         <Typography className="text-s-text text-lg">
-          Our AI agents utilize advanced machine learning algorithms to detect
-          emerging trends in Bitcoin markets using real-time price data from
-          CoinMarketCap's API. Operating on Base mainnet, we simulate trades
-          with a conservative profit target of +1% and a strict loss limit of
-          -0.5%. While analyzing 24-hour BTC price movements, trading volumes,
-          and market patterns, our system demonstrates optimal entry and exit
-          points. Note that all displayed transactions are simulations to
-          showcase the strategy's potential without actual capital deployment.
+          {AIInsight_text}
         </Typography>
       </Paper>
 
