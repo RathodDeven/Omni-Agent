@@ -4,6 +4,8 @@ dotenv.config()
 import './db'
 import express from 'express'
 import { ONE_HOUR, ONE_MINUTE } from './utils/time'
+import { initializeAgent, runAutonomousMode, runChatMode } from './agent'
+import { getBTCQuote } from './coinmarketcap'
 
 const http = require('http')
 const cors = require('cors')
@@ -26,6 +28,23 @@ app.get('/', (req, res) => {
 // Create an HTTP server using Express app
 const httpServer = http.createServer(app)
 
+async function startAgent() {
+  try {
+    const { agent, config } = await initializeAgent()
+
+    const btcQuoteTest = await getBTCQuote()
+
+    console.log('BTC Quote:', btcQuoteTest)
+
+    // Run in autonomous mode since this is a server
+    console.log('Starting agent in autonomous mode...')
+    await runAutonomousMode(agent, config)
+    // await runChatMode(agent, config)
+  } catch (error) {
+    console.error('Failed to initialize agent:', error)
+  }
+}
+
 // Start the HTTP server
 const PORT = process.env.PORT || 8000
 httpServer.listen(PORT, () => {
@@ -33,7 +52,5 @@ httpServer.listen(PORT, () => {
 
   console.log(`WebSocket server ready at ws://localhost:${PORT}`)
 
-  setInterval(() => {
-    console.log('Ping every 30seconds')
-  }, ONE_MINUTE / 2)
+  startAgent()
 })
