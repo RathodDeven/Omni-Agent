@@ -57,7 +57,7 @@ apps/
 - Backend: Node.js with CDP AgentKit
 - Network: Base Mainnet
 - DEX: Uniswap V3
-
+- TheGraph: Uniswap V3 Base graph
 ## Note
 
 Current trading activities shown in the interface are simulations to demonstrate the strategy's potential. The system is designed to showcase optimal trading patterns without actual capital deployment.
